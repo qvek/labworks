@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>{{group}} - {{subject}}</h2>
+
+{% for lsg in lsg_list %}
+    <a href="{% url 'teacher_labwork' group.id lsg.labwork.id %}">{{lsg.labwork}}</a><br>
+{% endfor %}
+
+<a href="{% url 'teacher_subject_summary' group.id subject.id %}">Сводная таблица</a>
+
+{% endblock %}

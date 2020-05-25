@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="{% url 'teacher_categories' %}" method="POST" enctype="multipart/form-data">
+<table>
+{{ form.as_table }}
+</table>
+{% csrf_token  %}
+<input type="submit" value="Добавить категорию">
+</form>
+
+<ul>
+{% for category in categories %}
+    <li>{{ category }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

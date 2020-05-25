@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{group}} - {{labwork}}</h1>
+
+<table align="center" width="100%" class="table_lab">
+<tr>
+	<td class="first_td">Cтудент</td>
+	<td>Наличие  Отчета</td>
+	<td>Дата сдачи</td>
+	<td>Выставить оценку</td>
+	<td>Комментарий</td>
+</tr>
+
+{% for sr in students %}
+  
+    <tr>
+    <td>
+        {{sr.student}}
+    </td>
+    <td>
+        {% if sr.report %}
+ 	 <a href="{{sr.report.file.url}}" target="_blank">Просмотреть</a>
+        {% endif %}
+    </td>
+    <td>
+    	{% if sr.report %}
+    	    {% if sr.report.update %}
+    	    	<b>Отчет обновлен</b>
+    	    	<br><br>
+    	    {% endif %}
+ 	 		{{sr.report.date}}
+        {% endif %}
+        <br><br>
+        {% if sr.diff.days > 0 %}
+        	Отправка просрочена на {{sr.diff.days}} дней.
+        {% endif %}
+    </td>
+    <td>
+	{% if sr.report %}
+	 {{sr.form}}
+	{% endif %}
+    </td>
+    <td>
+    {% if sr.report %}
+	 <textarea class="comment" data-comment="{{sr.report.id}}">{{sr.report.comment}}</textarea>
+	 <br>
+	 <input type="button" value="Отправить" data-send="{{sr.report.id}}">
+	 <div id="comment-{{sr.report.id}}"></div>
+	{% endif %}
+    </td>
+    </tr>
+
+{% endfor %}
+</table>
+
+{% csrf_token %}
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+
+$('select').change(function(event) {
+	var data = { 
+		'report_id':$(this).attr('data-id'), 
+		'evaluation':this.value, 
+		'csrfmiddlewaretoken':$("input[name='csrfmiddlewaretoken']").val() 		
+	};
+
+	$.ajax('{% url 'teacher_set_eval' %}', {data: data, method:'POST'}).done(function(data) {
+		console.log(data);
+	});
+});
+
+$('input[type="button"]').click(function() {
+	var report_id = $(this).attr('data-send');
+	
+	var data = {
+		'report_id': report_id,
+		'comment': $('textarea[data-comment="'+report_id+'"]').val(),
+		'csrfmiddlewaretoken':$("input[name='csrfmiddlewaretoken']").val()
+	};
+	
+	$.ajax('{% url 'teacher_set_comment' %}', {data: data, method:'POST'}).done(function(data) {
+		$('#comment-'+report_id).html('Комментарий отправлен');
+		console.log(data);
+	});
+});
+
+</script>
+{% endblock %}

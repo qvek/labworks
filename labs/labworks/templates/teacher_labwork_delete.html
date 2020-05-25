@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Удаление работы</h1>
+
+<form action="{% url 'teacher_labwork_delete' pk=labwork.pk %}" method="POST">
+  {% csrf_token %}
+
+  <input type="submit" value="Удалить работу" />
+  
+  <a href="{% url "teacher_labworks" %}">Нет</a>
+</form>
+
+{% endblock %}

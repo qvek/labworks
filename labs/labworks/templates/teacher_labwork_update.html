@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+
+<style type="text/css">
+
+.groups {
+	vertical-align: middle;
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'teacher_labwork_update' pk=object.pk %}" method="POST" enctype="multipart/form-data">
+<table>
+{{form.as_table}}
+</table>
+{% csrf_token %}
+<input type="submit" value="Обновить работу">
+
+<a href="{% url 'teacher_labwork_delete' pk=object.pk %}">Удалить работу</a>
+</form>
+
+<hr>
+
+<form action="{% url 'teacher_lsg_add' %}" method="POST">
+{{lsg_form}}
+{% csrf_token %}
+<br><br>
+<input type="submit" value="Опубликовать работу в группе">
+</form>
+
+<hr>
+
+<form action="{% url 'teacher_lsg_update' %}" method="POST">
+{{lsg_formset.management_form}}
+
+<table>
+    <tr>
+	<td>Группа</td>
+	<td>Дисциплина</td>
+	<td>Открыта</td>
+	<td>Срок сдачи</td>
+	<td>Удалить</td>
+    </tr>
+    {% for form in lsg_formset %}
+	<tr>
+	    <td>{{form.group}}</td>
+	    <td>{{form.subject}}</td>
+	    <td>{{form.status}}</td>
+	    <td class="td-deadline">{{form.deadline}}</td>
+	    <td>{{form.DELETE}} {{form.id}}</td>
+	</tr>
+    {% endfor %}
+</table>
+
+{% csrf_token %}
+<input type="hidden" name="labwork" value="{{object.id}}">
+<br><br>
+<input type="submit" value="Обновить публикации">
+</form>
+
+{% endblock %}
+
+{% block script %}
+
+<script type="text/javascript" src="{% static "labworks/jquery-ui.js" %}"></script>
+<script type="text/javascript" src="{% static "labworks/jquery.ui.datepicker-ru.js" %}"></script>
+
+<script type="text/javascript">
+
+$.datepicker.setDefaults($.datepicker.regional['ru']);
+$('.deadline, .td-deadline input').datepicker({dateFormat:'dd.mm.yy'});
+
+</script>
+
+{% endblock %}

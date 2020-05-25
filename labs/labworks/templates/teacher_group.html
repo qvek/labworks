@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Дисциплина {{subject}}</h1>
+
+{% for group in groups %}
+    <a href="{% url 'teacher_labworks' group.id subject.id %}">{{group}}</a><br>
+{% endfor %}
+
+{% endblock %}

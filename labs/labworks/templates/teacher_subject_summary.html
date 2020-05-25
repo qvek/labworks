@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static "labworks/bootstrap.min.css" %}">
+		<style type="text/css">
+			
+			#fixTable {
+				width: 1800px;
+			}
+			
+			.student {
+				white-space: nowrap;
+			}
+			
+			.score, .report, th {
+				text-align: center;
+			}
+			
+			th.sh {
+				text-align: left;
+			}
+			
+			p {
+				margin: 10px;
+			}
+			
+			body {
+				line-height: normal;
+			}
+			
+		</style>
+
+{% endblock %}
+
+{% block content %}
+
+<p><a href="{% url 'teacher_excel' group_id subject_id %}">Выгрузить в Excel</a></p>
+
+<div>
+<table class="table">
+<thead>
+ <tr>
+  <th class="sh">Студент</th>
+  <th>Средний балл</th>
+  {%  for lsg in lsg_set %}
+  <th>
+    {% firstof lsg.labwork.code lsg.labwork.name %}
+  </th>
+  {%  endfor %}
+ </tr>
+ </thead>
+
+<tbody>
+ {%  for student_set in students %}
+   <tr>
+    <td class="student">{{ student_set.student }}</td>
+    <td class="score">{{ student_set.score  }}</td>
+     {%   for report in student_set.reports %}
+       <td class="report">
+        {%   if report.report %}
+        	{%   if report.report.evaluation != 0 %}
+       			{{ report.report.evaluation }}
+       		{%  else %}
+       			<a href="{{ report.report.file.url }}" target="_blank">См.</a>
+                <br>
+                {{ report.form  }}
+       		{%  endif %}
+       	{%  else %}
+       		&mdash;
+       	{%  endif %}
+       </td>
+     {% endfor %}
+   </tr>
+   {%  endfor %}
+</tbody>
+</table>
+</div>
+
+    {% csrf_token %}
+
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript" src="{% static "labworks/tableHeadFixer.js" %}"></script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+				$("#fixTable").tableHeadFixer({"head" : false, "left" : 2});
+    });
+
+    $('select').change(function(event) {
+
+        var data = {
+		    'report_id':$(this).attr('data-id'),
+		    'evaluation':this.value,
+		    'csrfmiddlewaretoken':$("input[name='csrfmiddlewaretoken']").val()
+	    };
+
+	    $.ajax('{% url 'teacher_set_eval' %}', {data: data, method:'POST'}).done(function(data) {
+		    console.log(data);
+	    });
+    });
+
+    </script>
+
+{% endblock %}

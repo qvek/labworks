@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block css %}
+
+<style type="text/css">
+label, input {
+	float: left !important;
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+{{errors}}
+
+<p>Средний балл по дисциплине: {{ score }}</p>
+
+<table class="table_lab">
+            	<tr>
+                	<td class="first_td"> Лабораторная работа</td>
+                	<td>Сдать до</td>
+                    <td> Оценка </td>
+                    <td>Комментарий</td>
+                    <td>Текущий файл</td>
+                    
+                </tr>
+                
+                {% for lab in labwork_list %}
+<tr>
+    <td>
+     <a href="{{lab.labwork.file.url}}" target="_blank">{{lab.labwork}}</a>
+    </td>
+    <td>{{lab.deadline}}</td>
+    <td>
+        {% if  not lab.report and lab.form %}
+	  <form action="" method="POST" enctype="multipart/form-data">
+           {{lab.form.as_p}}
+           {% csrf_token %}
+           <input type="submit">
+          </form>
+        {% endif %}
+        
+        {% if lab.report.evaluation != 0 %}
+         {{lab.report.evaluation}}
+        {% else %}
+         Отчет отправлен
+            {% if lab.form %}
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {{lab.form.as_p}}
+                    {% csrf_token %}
+                    <input type="submit">
+                </form>
+            {% endif %}
+        {% endif %}
+        <br><br>
+        {% if lab.diff.days > 0 %}
+        	Отправка просрочена на {{lab.diff.days}} дней.
+        {% endif %}
+    </td>
+    <td>
+    	{{lab.report.comment}}
+    </td>
+    <td>
+    	<a href="{{lab.report.file.url}}">{{lab.report.file}}</a>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+{% endblock %}

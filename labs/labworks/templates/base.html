@@ -1,0 +1,69 @@
+<!-- Author: Anton Kablov  -->
+<!doctype html>
+<html>
+<head>
+<title>{% block title %} Система учета лабораторных работ {% endblock %}</title>
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="{% static "labworks/style.css" %}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{% static "labworks/jquery-ui.css" %}">
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+{% block css %}
+{% endblock %}
+
+<style type="text/css">
+	
+	#navigation {
+		position: relative;
+	}
+	
+	nav {
+		position: absolute;
+		right: 20px;
+	}
+</style>
+
+</head>
+
+<body>
+
+<div id="main">
+    	<div id="header">
+        	<p id="header_text">LABWORKS</p>
+       	</div>
+        
+        <div id="navigation">
+        	{% if user.is_authenticated %}
+        	<nav>
+        		<a href="{% url 'password_change' %}">Смена пароля</a>
+        		<a href="/logout">Выйти</a>
+        	</nav>
+        	{% endif %}
+        	<a href="/">Главная</a>
+        	{% if user.is_teacher %}
+        	<a href="{% url 'teacher_labworks' %}">Мои работы</a>
+            <a href="{% url 'teacher_categories' %}">Категории</a>
+        	{% endif %}
+            {% if user.is_authenticated %}
+                <a href="{% url 'archive' %}">Архив</a>
+            {% endif %}
+        </div>
+        
+        <div id="content">
+        	
+        	{% block content %}
+			{% endblock %}
+        
+        </div>
+</div>
+
+
+<script type="text/javascript" src="{% static "labworks/jquery-2.1.4.min.js" %}"></script>
+
+{% block script %}
+{% endblock %}
+
+</body>
+</html>

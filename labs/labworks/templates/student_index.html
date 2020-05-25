@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul id="lab_works">
+{% for tsg in subjects %}
+    <li><a href="{% url 'student_labworks' tsg_pk=tsg.pk %}">{{tsg.subject}} ({{tsg.teacher}})</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

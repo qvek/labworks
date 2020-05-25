@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="{% url 'teacher_labworks' %}" method="POST" enctype="multipart/form-data">
+<table>
+{{ form.as_table }}
+</table>
+{% csrf_token  %}
+<input type="submit" value="Добавить работу">
+</form>
+
+<table width="100%">
+<tr>
+    <th width="50%">Работы</th>
+    <th width="50%">Категории</th>
+</tr>
+<tr>
+
+<td width="50%">
+<ul>
+{% for lab in labworks %}
+	<li><a href="{% url 'teacher_labwork_update' lab.id %}">{{lab}}</a></li>
+{% endfor %}
+</ul>
+</td>
+
+<td width="50%">
+    <ul>
+    {% for category in categories %}
+        <li><a href="{% url 'teacher_category_labworks' category.pk %}">{{ category }}</a></li>
+    {% endfor %}
+    </ul>
+</td>
+
+</tr>
+</table>
+
+{% endblock %}

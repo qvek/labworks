@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+{% for lab in labworks %}
+	<li><a href="{% url 'teacher_labwork_update' lab.id %}">{{lab}}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

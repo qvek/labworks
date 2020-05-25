@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul id="lab_works">
+{% for subject in subjects %}
+
+    {% if archive %}
+        {#  if archive == True - даем ссылку на архив  #}
+        <li><a href="{% url 'teacher_archive_groups' subject.id %}">{{subject}}</a></li>
+    {% else %}
+	    <li><a href="{% url 'teacher_groups' subject.id %}">{{subject}}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+{% endblock %}
