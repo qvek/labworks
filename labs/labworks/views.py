@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.http import require_POST
 from django.forms.models import inlineformset_factory
 import django.forms as forms
-from django.core.mail import send_mail
+# from django.core.mail import send_mail
 from labs import settings
 from models import *
 import xlsxwriter
@@ -211,8 +211,8 @@ def teacher_set_comment(request):
     report.comment = request.POST['comment']
     report.update = False
     report.save()
-    if report.comment != '':
-        send_mail(u"Комментарий по "+report.labwork.name, report.comment, report.labwork.teacher.user.email, [report.student.user.email], fail_silently=False)
+    # if report.comment != '':
+    #     send_mail(u"Комментарий по "+report.labwork.name, report.comment, report.labwork.teacher.user.email, [report.student.user.email], fail_silently=False)
     return HttpResponse('ok')
 
 class LSGForm(forms.ModelForm):

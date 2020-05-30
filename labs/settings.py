@@ -18,9 +18,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
-DEFAULT_FROM_EMAIL = 'labworks@mpt.ru'
-SERVER_EMAIL = 'labworks@mpt.ru'
-ADMINS = (('Dmitriy', 'd.s.harchenko@mpt.ru'),)
+# DEFAULT_FROM_EMAIL = 'labworks@mpt.ru'
+# SERVER_EMAIL = 'labworks@mpt.ru'
+# ADMINS = (('Dmitriy', 'd.s.harchenko@mpt.ru'),)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -29,14 +29,14 @@ ADMINS = (('Dmitriy', 'd.s.harchenko@mpt.ru'),)
 SECRET_KEY = '!%0@pd-9vcgp20n%_sh)2ppwld=p+h*8388@*k-j-xs7&7ryf&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 TEMPLATE_CONTEXT_PROCESSORS += ("django.core.context_processors.request",)
 
-ALLOWED_HOSTS = ['labworks.mpt.ru', 'lw.mpt.ru']
+ALLOWED_HOSTS = '*'
 
 
 # Application definition
@@ -106,10 +106,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_ROOT = '/home/user/labworks/static'
+STATIC_ROOT = '/home/qvek/labwoks/labs/labworks/static/'
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = '/home/user/labworks/uploadfiles'
 MEDIA_URL = '/files/'
 
 EXCEL_ROOT = '/home/user/labworks/excel' #Excel reports
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    )

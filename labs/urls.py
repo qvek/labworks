@@ -2,12 +2,14 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from labworks.views import teacher_required, student_required, LabworkCreate, LabworkUpdate, LabworkDelete, CategoryCreate, LabworkList
 from django.conf.urls.static import static
-import settings
+from django.conf import settings
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'labs.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+
+    # urlpatterns = patterns('',) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
     url(r'^admin/', include(admin.site.urls)),
     (r'^$', 'labs.labworks.views.index'),
