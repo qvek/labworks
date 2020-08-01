@@ -20,7 +20,6 @@ itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
 mock==2.0.0
-mysqlclient==1.4.6
 ndg-httpsclient==0.3.2
 parsedatetime==1.4
 pbr==1.8.0
@@ -30,7 +29,6 @@ psutil==4.1.0
 pyasn1==0.1.9
 pycparser==2.10
 Pygments==2.0.1
-pyOpenSSL==19.1.0
 pyRFC3339==1.0
 pytz==2012rc0
 requests==2.4.3

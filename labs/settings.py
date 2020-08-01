@@ -83,8 +83,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'labworks',
-        'USER':'labworksUser',
-        'PASSWORD':'DJvXHJG6q7EC5rdN',
+        'USER':'User',
+        'PASSWORD':'1234qwer',
         'HOST':'localhost'
     }
 }
