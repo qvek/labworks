@@ -26,12 +26,6 @@
        	</div>
         
         <div id="navigation">
-        	{% if user.is_authenticated %}
-        	<nav>
-        		<a href="{% url 'password_change' %}">Смена пароля</a>
-        		<a href="/logout">Выйти</a>
-        	</nav>
-			{% endif %}
 			<nav>
 				<a href="/">Главная</a>
 				{% if user.is_teacher %}
@@ -42,6 +36,13 @@
 					<a href="{% url 'archive' %}">Архив</a>
 				{% endif %}
 			</nav>
+
+			{% if user.is_authenticated %}
+        	<nav>
+        		<a href="{% url 'password_change' %}">Смена пароля</a>
+        		<a href="/logout">Выйти</a>
+        	</nav>
+			{% endif %}
         </div>
         
         <div id="content">
