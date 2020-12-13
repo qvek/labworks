@@ -8,13 +8,13 @@
 
 body {
     width: 100vw;
-    height: 100vh;
 }
 
 #main {
     width: 100%;
     height: 100%;
     background: #000;
+    margin: 0;
 }
 
 #header {
@@ -48,12 +48,13 @@ body {
     letter-spacing: -2px;
 }
 
-
 #navigation {
     height: 45px;
     padding-left: 0;
     background: #1b1b1b;
     border-bottom: 3px solid #252525;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 #navigation a {
@@ -73,15 +74,15 @@ body {
 }
 
 #content {
-    padding-left: 3px;
+    padding-left: 10px;
     padding-top: 2vh;
 }
 
-.login-form__username__label, .login-form__password__label {
+.login-form__username__label, .login-form__password__label, #content label {
     color: white;
 }
 
-.login-form__username__input, .login-form__password__input {
+.login-form__username__input, .login-form__password__input, #content input {
     border: none;
     background: #363636;
     color: #cacaca;
@@ -116,3 +117,7 @@ input[type=submit]:hover, #button_cont_a:hover{
 	transition: all 150ms linear;
 }
 
+#lab_works {
+    margin: 0;
+    color: white;
+}
