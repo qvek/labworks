@@ -8,13 +8,17 @@
 	border: solid 1px #000; 
 	}
 #header{
-	background: #7db9e8; /* Old browsers */
+	/* old style */
+	background: #7db9e8;
 	background: -moz-linear-gradient(-45deg,  #7db9e8 0%, #1e5799 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#7db9e8), color-stop(100%,#1e5799)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(-45deg,  #7db9e8 0%,#1e5799 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(-45deg,  #7db9e8 0%,#1e5799 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(-45deg,  #7db9e8 0%,#1e5799 100%); /* IE10+ */
 	background: linear-gradient(135deg,  #7db9e8 0%,#1e5799 100%); /* W3C */
+	/* new style */
+	background: #000; /* for old style delete line */
+	/* old style. don't touch */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=1 ); /* IE6-9 fallback on 			horizontal gradient */
 	display:block;
 	height:150px;
@@ -29,7 +33,29 @@
 	text-shadow: 0px 0px 7px rgba(255, 255, 255, 0.8);
 	color: #FFFFFF;
 	font-size: 50px;
-	}	 
+	}
+
+/* start new styles. for return old styles delete this */
+.lab .works {
+	display: block;
+	height: 70px;
+	text-shadow: 0 0 0;
+}
+
+.lab {
+	margin-left: 5px;
+	margin-right: 2px;
+	color: white;
+}
+
+.works {
+	margin-left: 2px;
+	margin-right: 5px;
+	background: rgb(255, 165, 0);
+	color: #000;
+}
+/* end new styles */
+
 /*меню*/
 #navigation{
 	background: rgb(255,255,255); /* Old browsers */
