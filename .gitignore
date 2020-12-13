@@ -5,3 +5,5 @@ uploadfiles*
 excel
 settings.py
 labworks-env/
+labworks/manage.py
+labworks/labs/settings.py
