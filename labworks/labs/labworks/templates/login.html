@@ -8,14 +8,14 @@
 
 <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
 {% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
+<table class="login-form">
+<tr class="login-form__username">
+    <td class="login-form__username__label">{{ form.username.label_tag }}</td>
+    <td class="login-form__username__input">{{ form.username }}</td>
 </tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
+<tr class="login-form__password">
+    <td class="login-form__password__label">{{ form.password.label_tag }}</td>
+    <td class="login-form__password__input">{{ form.password }}</td>
 </tr>
 </table>
 
@@ -23,6 +23,6 @@
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
-<p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+<!-- <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p> -->
 
 {% endblock %}
