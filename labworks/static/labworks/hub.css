@@ -3,15 +3,27 @@
     padding: 0;
     box-sizing: border-box;
     list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
 }
 
 #main {
+    width: 100%;
+    height: 100%;
     background: #000;
 }
 
 #header {
-    background: rgb(27, 27, 27);
-    border-bottom: 3px solid rgb(29, 29, 29);
+    background: #1b1b1b;
+    border-bottom: 3px solid #252525;
+}
+
+#header_text {
+    display: flex;
 }
 
 .lab, .works {
@@ -28,7 +40,7 @@
 .works {
 	padding-left: 7px;
 	padding-right: 7px;
-	background: rgb(255, 155, 7);
+	background: #ffa31a;
 	color: #000;
 	border-radius: 5px;
 }
@@ -37,12 +49,12 @@
 #navigation {
     height: 45px;
     padding-left: 0;
-    background: rgb(27, 27, 27);
-    border-bottom: 3px solid rgb(29, 29, 29);
+    background: #1b1b1b;
+    border-bottom: 3px solid #252525;
 }
 
 #navigation a {
-    height: 43px;
+    height: 44px;
     display: flex;
     align-items: center;
     margin: 0;
@@ -53,7 +65,13 @@
 
 #navigation a:hover {
     text-decoration: none;
-    border: 1px solid rgb(29, 29, 29);
+    box-shadow: 0px 0px 0px 1px #252525;
+    background: #191919;
+}
+
+#content {
+    padding-left: 3px;
+    padding-top: 2vh;
 }
 
 .login-form__username__label, .login-form__password__label {
@@ -62,24 +80,28 @@
 
 .login-form__username__input, .login-form__password__input {
     border: none;
-    background: rgb(53, 53, 53);
-    color: rgb(130,130,130);
+    background: #363636;
+    color: #cacaca;
+    border-radius: 5px;
 }
 
 input[type=submit], #button_cont_a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(255, 155, 7);
-    border-radius: 3px;
+    background: #ffa31a;
+    border-radius: 5px;
     border: none;
+    width: 100%;
+    height: 26px;
+    padding: 6px 10px;
 }
 
 input[type=submit]:hover, #button_cont_a:hover{
-	background: rgb(255, 155, 7);
-	background: rgb(255, 155, 7);
-	background: rgb(255, 155, 7);
-	background: rgb(255, 155, 7);
+	background: #ffa31a;
+	background: #ffa31a;
+	background: #ffa31a;
+	background: #ffa31a;
 	-moz-transform: none;
 	-webkit-transform: none;
 	-o-transform: none;
