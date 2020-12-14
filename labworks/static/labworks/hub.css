@@ -146,7 +146,7 @@ input[type=submit]:hover, #button_cont_a:hover {
     height: 100%;
 }
 
-label[for="id_no_check"] {
+input#id_no_check {
     position: relative;
     cursor: pointer;
 }
@@ -179,14 +179,14 @@ input#id_no_check::after {
     background:blue;
 }
 
-input#id_no_check:checked input#id_no_check::after, 
-input#id_no_check:disabled input#id_no_check::before {
+input#id_no_check:disabled input#id_no_check::before, 
+input#id_no_check:checked input#id_no_check::after {
     opacity: 1;
     z-index: 0;
 }
 
-input#id_no_check:checked input#id_no_check::before, 
-input#id_no_check:disabled input#id_no_check::after {
+input#id_no_check:disabled input#id_no_check::after, 
+input#id_no_check:checked input#id_no_check::before {
     opacity: 0;
     z-index: -1;
 }
