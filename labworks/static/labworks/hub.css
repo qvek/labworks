@@ -153,6 +153,7 @@ label[for="id_no_check"] {
 
 label[for="id_no_check"]::before {
     content: '';
+    cursor: pointer;
     display: block;
     position: absolute;
     width: 13px;
@@ -166,6 +167,7 @@ label[for="id_no_check"]::before {
 
 label[for="id_no_check"]::after {
     content: '';
+    cursor: pointer;
     display: block;
     position: absolute;
     width: 13px;
