@@ -230,7 +230,7 @@ input[type=submit]:hover, #button_cont_a:hover {
     color: white;
 }
 
-.labs__checkbox {
+#labs__checkbox {
     opacity: 0;
     z-index: -1;
 }
@@ -242,7 +242,7 @@ input[type=submit]:hover, #button_cont_a:hover {
     flex-direction: column;
 }
 
-.labs__checkbox:checked + .labs__list {
+#labs__checkbox:checked + .labs__list {
     display: flex;
 }
 
@@ -254,7 +254,7 @@ input[type=submit]:hover, #button_cont_a:hover {
     top: 0;
 }
 
-.labs__checkbox:checked + .labs__list .labs__list__item {
+#labs__checkbox:checked + .labs__list .labs__list__item {
     position: relative;
 }
 
