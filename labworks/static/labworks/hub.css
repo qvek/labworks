@@ -176,11 +176,11 @@ input[type=submit]:hover, #button_cont_a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    background: #ffa31a;
+    border-radius: 5px;
     position: absolute;
     top: 0;
     left: 0;
-    background: #ffa31a;
     width: 100px;
     height: 50px;
     color: #363636;
@@ -189,7 +189,8 @@ input[type=submit]:hover, #button_cont_a:hover {
 
 #id_file:hover::before {
     transition: background 0.3s ease-in;
-    background: #7d0707;
+    background: #a40909;
+    color: white;
 }
 
 .form-add-labs select {
@@ -200,4 +201,37 @@ input[type=submit]:hover, #button_cont_a:hover {
     color: white;
     min-height: 23px;
     height: 100%;
+}
+
+.labs-and-categories-content {
+    display: flex;
+    width: 100vw;
+    max-width: 100%;
+    flex-direction: column;
+}
+
+.labs, .categories {
+    display: flex;
+    width: 100%;
+    max-width: 50vw;
+}
+
+.labs__title, .categories__title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.labs__list, .categories__list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.labs__list__item, .categories__list__item {
+    display: flex;
+    text-decoration: none;
+    color: white;
+
 }

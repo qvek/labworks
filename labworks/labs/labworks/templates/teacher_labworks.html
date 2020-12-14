@@ -10,13 +10,8 @@
     <input type="submit" value="Добавить работу">
 </form> -->
 
-<form action="{% url 'teacher_labworks' %}" method="POST" enctype="multipart/form-data" class="form-add-labs">
-    {{ form.as_p }}
-    {% csrf_token  %}
-    <input type="submit" value="Добавить работу">
-</form>
 
-<table width="100%" class="labs-and-categories">
+<!-- <table width="100%" class="labs-and-categories">
     <tr>
         <th width="50%">Работы</th>
         <th width="50%">Категории</th>
@@ -44,6 +39,35 @@
 </td>
 
 </tr>
-</table>
+</table> -->
+
+<form action="{% url 'teacher_labworks' %}" method="POST" enctype="multipart/form-data" class="form-add-labs">
+    {{ form.as_p }}
+    {% csrf_token  %}
+    <input type="submit" value="Добавить работу">
+</form>
+
+<content class="labs-and-categories-content">
+    <section class="labs labs-section">
+        <h2 class="labs__title">Работы</h2>
+        <ul class="labs__list">
+            {% for lab in labworks %}
+            <li class="labs__list__item labs-and-categories__item">
+                <a href="{% url 'teacher_labwork_update' lab.id %}">{{lab}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section class="categories categories-section">
+        <h2 class="categories__title">Категории</h2>
+        <ul class="categories__list">
+            {% for lab in labworks %}
+            <li class="categories__list__item labs-and-categories__item">
+                <a href="{% url 'teacher_labwork_update' lab.id %}">{{lab}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</content>
 
 {% endblock %}
