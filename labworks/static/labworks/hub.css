@@ -152,10 +152,10 @@ input[type=submit]:hover, #button_cont_a:hover {
     transition: box-shadow 0.3s ease-in;
 }
 
-#id_no_check:active:disabled {
-    box-shadow: 30px 0 0 0 rgba(0,0,0,.3) inset;
+#id_no_check:disabled {
+    box-shadow: 80px 0 0 0 rgba(0,0,0,.3) inset;
 }
 
-#id_no_check:active:checked {
-    box-shadow: 30px 0 0 0 rgba(19, 198, 69, 0.81) inset;
+#id_no_check:checked {
+    box-shadow: 80px 0 0 0 rgba(19, 198, 69, 0.81) inset;
 }
