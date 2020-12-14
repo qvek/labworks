@@ -11,11 +11,7 @@
 </form> -->
 
 <form action="{% url 'teacher_labworks' %}" method="POST" enctype="multipart/form-data">
-    <ul class="teacher-labs">
-        {% for item in form %}
-            {{item}}
-        {% endfor %}
-    </ul>
+    {{ form.as_ul }}
     {% csrf_token  %}
     <input type="submit" value="Добавить работу">
 </form>
