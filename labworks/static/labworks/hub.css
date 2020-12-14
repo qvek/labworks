@@ -128,27 +128,69 @@ input[type=submit]:hover, #button_cont_a:hover {
 	transition: all 150ms linear;
 }
 
+#id_file {
+    width: 100%;
+    position: relative;
+    color: white;
+}
+
 #id_file::-webkit-file-upload-button {
     visibility: hidden;
 }
+
 #id_file::before {
     content: 'Select some files';
+    position: absolute;
     display: inline-block;
-    background: linear-gradient(top, #f9f9f9, #e3e3e3);
-    border: 1px solid #999;
-    border-radius: 3px;
-    padding: 5px 8px;
+    background: #ffa31a;
+    border-radius: 5px;
+    padding-top: 3px;
     outline: none;
     white-space: nowrap;
     -webkit-user-select: none;
     cursor: pointer;
-    text-shadow: 1px 1px #fff;
-    font-weight: 700;
+    font-weight: bold;
     font-size: 10pt;
 }
+
 #id_file:hover::before {
-border-color: black;
+    background: #ffa31a;
 }
-#id_file:active::before {
-background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+
+#id_no_check {
+    opacity: 0;
+    z-index: -1;
+    position: relative;
+}
+
+label[for="id_no_check"]::before {
+    content: "";
+    display: flex;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 3px;
+    right: -42px;
+    opacity: 1;
+    background: grey;
+}
+
+label[for="id_no_check"]::after {
+    content: "";
+    opacity: 0;
+    display: flex;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 3px;
+    right: -42px;
+    background: red;
+}
+
+label[for="id_no_check"]::before:active #id_no_check:checked label[for="id_no_check"]::before {
+    opacity: 0;
+}
+
+label[for="id_no_check"]::after:active #id_no_check:checked label[for="id_no_check"]::before {
+    opacity: 1;
 }
