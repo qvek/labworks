@@ -163,15 +163,19 @@ input[type=submit]:hover, #button_cont_a:hover {
     position: relative;
 }
 
+label[for="id_no_check"] {
+    position: relative;
+}
+
 label[for="id_no_check"]::before {
     content: "";
+    opacity: 1;
     display: flex;
     width: 12px;
     height: 12px;
     position: absolute;
     top: 3px;
     right: -42px;
-    opacity: 1;
     background: grey;
 }
 
@@ -187,10 +191,4 @@ label[for="id_no_check"]::after {
     background: red;
 }
 
-label[for="id_no_check"]::before:active #id_no_check:checked label[for="id_no_check"]::before {
-    opacity: 0;
-}
-
-label[for="id_no_check"]::after:active #id_no_check:checked label[for="id_no_check"]::before {
-    opacity: 1;
-}
+/* label[for="id_no_check"]::before:active, #id_no_check:checked ~  */

@@ -2,29 +2,39 @@
 
 {% block content %}
 
+<!-- <form action="{% url 'teacher_labworks' %}" method="POST" enctype="multipart/form-data">
+    <table class="teacher-labs">
+        {{ form.as_table }}
+    </table>
+    {% csrf_token  %}
+    <input type="submit" value="Добавить работу">
+</form> -->
+
 <form action="{% url 'teacher_labworks' %}" method="POST" enctype="multipart/form-data">
-<table class="teacher-labs">
-{{ form.as_table }}
-</table>
-{% csrf_token  %}
-<input type="submit" value="Добавить работу">
+    <ul class="teacher-labs">
+        {% for item in form %}
+            {{item}}
+        {% endfor %}
+    </ul>
+    {% csrf_token  %}
+    <input type="submit" value="Добавить работу">
 </form>
 
 <table width="100%" class="labs-and-categories">
-<tr>
-    <th width="50%">Работы</th>
-    <th width="50%">Категории</th>
-</tr>
+    <tr>
+        <th width="50%">Работы</th>
+        <th width="50%">Категории</th>
+    </tr>
 <tr>
 
 <td width="50%">
-<ul class="list list-labs">
-{% for lab in labworks %}
-	<li class="list-labs__item labs-and-categories__item">
-        <a href="{% url 'teacher_labwork_update' lab.id %}">{{lab}}</a>
-    </li>
-{% endfor %}
-</ul>
+    <ul class="list list-labs">
+    {% for lab in labworks %}
+        <li class="list-labs__item labs-and-categories__item">
+            <a href="{% url 'teacher_labwork_update' lab.id %}">{{lab}}</a>
+        </li>
+    {% endfor %}
+    </ul>
 </td>
 
 <td width="50%">
