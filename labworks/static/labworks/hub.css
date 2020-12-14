@@ -151,7 +151,7 @@ label[for="id_no_check"] {
     cursor: pointer;
 }
 
-label[for="id_no_check"]::before {
+input#id_no_check::before {
     content: '';
     cursor: pointer;
     display: block;
@@ -165,71 +165,28 @@ label[for="id_no_check"]::before {
     background: #363636;
 }
 
-label[for="id_no_check"]::after {
+input#id_no_check::after {
     content: '';
     cursor: pointer;
     display: block;
     position: absolute;
     width: 13px;
     height: 13px;
-    top: 3.2px;
-    right: -12px;
+    top: 0;
+    left: 0;
     opacity: 0;
     z-index: -1;
-    background: #363636;
+    background:blue;
 }
 
-#id_no_check {
-    opacity: 0;
-    z-index: -1;
-}
-
-label[for="id_no_check"]::before:active, #id_no_check:checked, label[for="id_no_check"]::before{
-    opacity: 0;
-    z-index: -1;
-}
-
-label[for="id_no_check"]::before:active ~ label[for="id_no_check"]::after {
+input#id_no_check:checked input#id_no_check::after, 
+input#id_no_check:disabled input#id_no_check::before {
     opacity: 1;
     z-index: 0;
 }
 
-label[for="id_no_check"]::after:active, #id_no_check:disabled, label[for="id_no_check"]::after{
+input#id_no_check:checked input#id_no_check::before, 
+input#id_no_check:disabled input#id_no_check::after {
     opacity: 0;
     z-index: -1;
 }
-
-label[for="id_no_check"]::after:active ~ label[for="id_no_check"]::before {
-    opacity: 1;
-    z-index: 0;
-}
-
-#id_file {
-    width: 100%;
-    position: relative;
-    color: white;
-}
-
-#id_file::-webkit-file-upload-button {
-    visibility: hidden;
-}
-
-#id_file::before {
-    content: 'Select some files';
-    position: absolute;
-    display: inline-block;
-    background: #ffa31a;
-    border-radius: 5px;
-    padding-top: 3px;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 10pt;
-}
-
-#id_file:hover::before {
-    background: #ffa31a;
-}
-
