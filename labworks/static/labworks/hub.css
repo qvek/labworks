@@ -182,7 +182,7 @@ input[type=submit]:hover, #button_cont_a:hover {
     top: 0;
     left: 0;
     width: 100px;
-    height: 50px;
+    height: 22px;
     color: #363636;
 }
 
@@ -217,6 +217,10 @@ input[type=submit]:hover, #button_cont_a:hover {
     max-width: 50vw;
 }
 
+.labs__label {
+    cursor: pointer;
+}
+
 .labs__title, .categories__title {
     display: flex;
     width: 100%;
@@ -225,14 +229,37 @@ input[type=submit]:hover, #button_cont_a:hover {
     color: white;
 }
 
-.labs__list, .categories__list {
-    display: flex;
+.labs__checkbox:disabled ~ .labs__list, .categories__list {
+    display: none;
+    position: relative;
     width: 100%;
     flex-direction: column;
 }
 
-.labs__list__item > a, .categories__list__item > a {
-    text-decoration: none;
-    color: white;
+.labs__checkbox:checked + .labs__list {
     display: flex;
 }
+
+.labs__list .labs__list__item {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.labs__checkbox:checked + .labs__list .labs__list__item {
+    position: relative;
+}
+
+
+.labs__list__item > a, .categories__list__item > a {
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: white;
+    display: inline-flex;
+    min-width: 50%;
+    min-height: 25px;
+    height: 100%;
+    align-items: center;
+}
+
