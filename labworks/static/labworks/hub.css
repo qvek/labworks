@@ -148,6 +148,7 @@ input[type=submit]:hover, #button_cont_a:hover {
 
 label[for="id_no_check"] {
     position: relative;
+    cursor: pointer;
 }
 
 label[for="id_no_check"]::before {
