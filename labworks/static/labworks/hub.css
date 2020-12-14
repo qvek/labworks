@@ -152,6 +152,8 @@ label[for="id_no_check"] {
 
 label[for="id_no_check"]::before {
     content: '';
+    display: block;
+    position: absolute;
     width: 13px;
     height: 13px;
     top: 3.2px;
@@ -163,6 +165,8 @@ label[for="id_no_check"]::before {
 
 label[for="id_no_check"]::after {
     content: '';
+    display: block;
+    position: absolute;
     width: 13px;
     height: 13px;
     top: 3.2px;
