@@ -148,8 +148,6 @@ input[type=submit]:hover, #button_cont_a:hover {
 
 label[for="id_no_check"] {
     position: relative;
-    opacity: 0;
-    z-index: -1;
 }
 
 label[for="id_no_check"]::before {
@@ -172,6 +170,11 @@ label[for="id_no_check"]::after {
     opacity: 0;
     z-index: -1;
     background: #363636;
+}
+
+#id_no_check {
+    opacity: 0;
+    z-index: -1;
 }
 
 label[for="id_no_check"]::before:active, #id_no_check:checked, label[for="id_no_check"]::before{
