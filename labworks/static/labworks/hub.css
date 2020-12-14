@@ -128,6 +128,70 @@ input[type=submit]:hover, #button_cont_a:hover {
 	transition: all 150ms linear;
 }
 
+.form-add-labs p {
+    display: flex;
+    min-height: 35px;
+    height: 100%;
+    align-items: center;
+}
+
+.form-add-labs p label {
+    width: 180px;
+    display: flex;
+    align-items: center;
+}
+
+.form-add-labs p input[type=text] {
+    min-height: 23px;
+    height: 100%;
+}
+
+label[for="id_no_check"] {
+    position: relative;
+}
+
+label[for="id_no_check"]::before {
+    content: '';
+    width: 13px;
+    height: 13px;
+    top: 3.2px;
+    right: -12px;
+    opacity: 1;
+    z-index: 0;
+    background: #363636;
+}
+
+label[for="id_no_check"]::after {
+    content: '';
+    width: 13px;
+    height: 13px;
+    top: 3.2px;
+    right: -12px;
+    opacity: 0;
+    z-index: -1;
+    background: #363636;
+}
+
+label[for="id_no_check"]::before:active, #id_no_check:checked, label[for="id_no_check"]::before{
+    opacity: 0;
+    z-index: -1;
+}
+
+label[for="id_no_check"]::before:active ~ label[for="id_no_check"]::after {
+    opacity: 1;
+    z-index: 0;
+}
+
+label[for="id_no_check"]::after:active, #id_no_check:disabled, label[for="id_no_check"]::after{
+    opacity: 0;
+    z-index: -1;
+}
+
+label[for="id_no_check"]::after:active ~ label[for="id_no_check"]::before {
+    opacity: 1;
+    z-index: 0;
+}
+
 #id_file {
     width: 100%;
     position: relative;
@@ -157,38 +221,3 @@ input[type=submit]:hover, #button_cont_a:hover {
     background: #ffa31a;
 }
 
-#id_no_check {
-    opacity: 0;
-    z-index: -1;
-    position: relative;
-}
-
-label[for="id_no_check"] {
-    position: relative;
-}
-
-label[for="id_no_check"]::before {
-    content: "";
-    opacity: 1;
-    display: flex;
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    top: 3px;
-    right: -42px;
-    background: grey;
-}
-
-label[for="id_no_check"]::after {
-    content: "";
-    opacity: 0;
-    display: flex;
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    top: 3px;
-    right: -42px;
-    background: red;
-}
-
-/* label[for="id_no_check"]::before:active, #id_no_check:checked ~  */
