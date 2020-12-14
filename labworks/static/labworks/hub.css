@@ -207,11 +207,12 @@ input[type=submit]:hover, #button_cont_a:hover {
     display: flex;
     width: 100vw;
     max-width: 100%;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .labs, .categories {
     display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 50vw;
 }
@@ -221,6 +222,7 @@ input[type=submit]:hover, #button_cont_a:hover {
     width: 100%;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .labs__list, .categories__list {
@@ -229,9 +231,8 @@ input[type=submit]:hover, #button_cont_a:hover {
     flex-direction: column;
 }
 
-.labs__list__item, .categories__list__item {
-    display: flex;
+.labs__list__item > a, .categories__list__item > a {
     text-decoration: none;
     color: white;
-
+    display: flex;
 }

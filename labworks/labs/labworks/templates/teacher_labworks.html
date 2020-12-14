@@ -63,7 +63,7 @@
         <ul class="categories__list">
             {% for lab in labworks %}
             <li class="categories__list__item labs-and-categories__item">
-                <a href="{% url 'teacher_labwork_update' lab.id %}">{{lab}}</a>
+                <a href="{% url 'teacher_category_labworks' category.pk %}">{{ category }}</a>
             </li>
             {% endfor %}
         </ul>
