@@ -3,6 +3,6 @@
 uploadfiles
 uploadfiles*
 excel
-settings.py
+labs/settings.py
 labworks-env/
 manage.py
