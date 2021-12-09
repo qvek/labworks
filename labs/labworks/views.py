@@ -194,6 +194,9 @@ def teacher_excel(request, group_id, subject_id):
     response['Content-Disposition'] = "attachment; filename*=UTF-8''%s" % url
     return response
 
+def plans(request):
+    return render(request, 'plans.html')
+
 @teacher_required
 @require_POST
 def teacher_set_eval(request):
@@ -283,7 +286,7 @@ class LabworkView(FormView):
 
     def get_form(self, form_class=None):
         """ пришивает работы преподователя """
-    	if form_class is None:
+        if form_class is None:
             form_class = self.get_form_class()
         form = form_class(**self.get_form_kwargs())
         form.fields['parent'].queryset = self.get_parent_queryset()
