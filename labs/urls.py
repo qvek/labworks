@@ -46,5 +46,6 @@ urlpatterns = patterns('',
     url(r'^password_reset_done/$', 'django.contrib.auth.views.password_reset_done', {'template_name': 'password_reset_done.html'}, name='password_reset_done'),
     url(r'^password/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', 'django.contrib.auth.views.password_reset_confirm', {'template_name': 'password_reset_confirm.html'}, name='password_reset_confirm'),
     url(r'^password_reset_complete/$', 'django.contrib.auth.views.password_reset_complete',  {'template_name': 'password_reset_complete.html'}, name='password_reset_complete'),
-    url(r'^plans/', 'labs.labworks.views.plans', name='plans')
+    url(r'^plans/', 'labs.labworks.views.plans', name='plans'),
+    url(r'^timetable', 'labs.labworks.views.timetable', name='timetable')
 )

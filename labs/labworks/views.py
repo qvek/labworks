@@ -197,6 +197,9 @@ def teacher_excel(request, group_id, subject_id):
 def plans(request):
     return render(request, 'plans.html')
 
+def timetable(request):
+    return render(request, 'timetable.html')
+
 @teacher_required
 @require_POST
 def teacher_set_eval(request):
